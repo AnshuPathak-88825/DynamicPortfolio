@@ -1,5 +1,6 @@
 import React from 'react'
 import {ReactNavbar} from "overlay-navbar"
+import logo from "../../Images/logo.jpg"
 import { FaUserAlt } from "react-icons/fa";
 const Header = () => {
   return <ReactNavbar
@@ -7,7 +8,7 @@ const Header = () => {
       navColor2="hsl(219, 48%, 8%)"
       burgerColor="hsl(250, 100%, 75%)"
       burgerColorHover="hsl(250, 100%, 75%)"
-    //   logo={logo}
+      logo={logo}
       logoWidth="250px"
       logoHoverColor="hsl(250, 100%, 75%)"
       nav2justifyContent="space-around"
@@ -25,7 +26,7 @@ const Header = () => {
       link1Size="1.5rem"
       link1Padding="3vmax"
       profileIcon={true}
-      ProfileIconElement={FaUserAlt}
+      ProfileIconElement={FaUserAlt}  //userdefined
       profileIconColor="HSL(250, 100%, 75%)"
       profileIconColorHover="white"
 
