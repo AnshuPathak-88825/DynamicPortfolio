@@ -8,7 +8,7 @@ import moonImage from "../../Images/moon.jpg";
 import venusImage from "../../Images/venus.jpg";
 import spaceImage from "../../Images/space.jpg";
 
-import {Typography} from "@mui/material";
+import { Typography } from "@mui/material";
 import TimeLine from "../TimeLine/TimeLine";
 const Home = () => {
   useEffect(() => {
@@ -39,14 +39,10 @@ const Home = () => {
     const venus = new THREE.Mesh(venusGeometry, venusMaterial);
     venus.position.set(8, 5, 5);
 
-
-
     const pointLight = new THREE.PointLight(0xffffff, 1);
-    pointLight.position.set(8,5,5);
+    pointLight.position.set(8, 5, 5);
     const pointLight2 = new THREE.PointLight(0xffffff, 0.1);
-    pointLight2.position.set(-8,-5,-5);
-
-
+    pointLight2.position.set(-8, -5, -5);
 
     //  const lightHelper=new THREE.PointLightHelper(pointLight);
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -54,10 +50,9 @@ const Home = () => {
     scene.add(venus);
     scene.add(pointLight);
     scene.add(pointLight2);
-    scene.background=spaceTexture;
+    scene.background = spaceTexture;
     //  scene.add(lightHelper);
-    
-   
+
     const animate = () => {
       requestAnimationFrame(animate);
       moon.rotation.y += 0.01;
@@ -71,10 +66,11 @@ const Home = () => {
     <div className="home">
       <canvas className="homeCanvas"></canvas>
       <div className="homeContainer">
-        <Typography variant="h3">
-          TIMELINE
-        </Typography>
-        <TimeLine timelines={[1,2,3,4]}/>
+        <Typography variant="h3">TIMELINE</Typography>
+        <TimeLine timelines={[1, 2, 3, 4]} />
+      </div>
+      <div className="homeSkills">
+        <Typography variant="h3">Skills</Typography>
       </div>
     </div>
   );

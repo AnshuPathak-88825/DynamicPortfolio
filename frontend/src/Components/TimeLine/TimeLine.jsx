@@ -15,7 +15,6 @@ const TimeLine = ({ timelines = [] }) => {
         {timelines.map((item, index) => (
           <TimelineItem key={index}>
             <TimelineOppositeContent>3/27/2022</TimelineOppositeContent>
-
             <TimelineSeparator>
             <TimelineConnector/>
               <TimelineDot>
