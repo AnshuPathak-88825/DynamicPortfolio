@@ -39,9 +39,12 @@
     font-size: 4vmax;
  }
  .homeCubeSkills{
-   width: 200px;
-   height:200px;
- }
+   width: 300px;
+   height:300px;
+   /* transform: rotateY(20deg); */
+   animation: cubeRotation 15s linear infinite alternate;
+   transform-style: preserve-3d;
+}
  .homeCubeSkillsFaces{
    display: flex;
    align-items: center;
@@ -51,4 +54,32 @@
    width: inherit;
    /*  sb ek hi mein aa jayenge */
    height: inherit;
+   opacity: 0.9;
+ }
+ .homeCubeSkillsFaces >img{
+   width: inherit;
+   height: inherit;
+ }
+ .homeCudeSkillsFace1{
+   transform: translate3d(0,0,150px);
+ }
+ .homeCudeSkillsFace2{
+   transform: rotateY(180deg) translate3d(0,0,150px);
+ }
+ .homeCudeSkillsFace3{
+   transform: rotateY(-90deg) translate3d(0,0,150px);
+ }
+ .homeCudeSkillsFace4{
+   transform: rotateY(90deg) translate3d(0,0,150px);
+ }
+ .homeCudeSkillsFace5{
+   transform: rotateX(90deg) translate3d(0,0,150px);
+ }
+ .homeCudeSkillsFace6{
+   transform: rotateX(-90deg) translate3d(0,0,150px);
+ }
+ @keyframes cubeRotation {
+   to{
+   transform: rotateY(360deg) rotateX(480deg) rotateZ(720deg);
+   }
  }
