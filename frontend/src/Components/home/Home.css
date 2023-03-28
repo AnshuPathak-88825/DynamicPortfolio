@@ -38,3 +38,17 @@
     margin-bottom: 4vmax;
     font-size: 4vmax;
  }
+ .homeCubeSkills{
+   width: 200px;
+   height:200px;
+ }
+ .homeCubeSkillsFaces{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   box-shadow: 0 0 10px rgb(0,0,0);
+   position: absolute;
+   width: inherit;
+   /*  sb ek hi mein aa jayenge */
+   height: inherit;
+ }

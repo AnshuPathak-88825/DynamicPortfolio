@@ -71,6 +71,56 @@ const Home = () => {
       </div>
       <div className="homeSkills">
         <Typography variant="h3">Skills</Typography>
+        <div className="homeCubeSkills">
+          <div className="homeCubeSkillsFaces homeCudeSkillsFace1">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpz2UhQvvWkHt2O1PuikPCRRoypKobg2V5bA&usqp=CAU"
+              alt="Face1"
+              height="200px"
+              width="200px"
+            />
+          </div>
+          <div className="homeCubeSkillsFaces homeCudeSkillsFace2">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpz2UhQvvWkHt2O1PuikPCRRoypKobg2V5bA&usqp=CAU"
+              alt="Face2"
+              height="200px"
+              width="200px"
+            />
+          </div>
+          <div className="homeCubeSkillsFaces homeCudeSkillsFace3">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpz2UhQvvWkHt2O1PuikPCRRoypKobg2V5bA&usqp=CAU"
+              alt="Face3"
+              height="200px"
+              width="200px"
+            />
+          </div>
+          <div className="homeCubeSkillsFaces homeCudeSkillsFace4">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpz2UhQvvWkHt2O1PuikPCRRoypKobg2V5bA&usqp=CAU"
+              alt="Face4"
+              height="200px"
+              width="200px"
+            />
+          </div>
+          <div className="homeCubeSkillsFaces homeCudeSkillsFace5">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpz2UhQvvWkHt2O1PuikPCRRoypKobg2V5bA&usqp=CAU"
+              alt="Face5"
+              height="200px"
+              width="200px"
+            />
+          </div>
+          <div className="homeCubeSkillsFaces homeCudeSkillsFace6">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpz2UhQvvWkHt2O1PuikPCRRoypKobg2V5bA&usqp=CAU"
+              alt="Face6"
+              height="200px"
+              width="200px"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
