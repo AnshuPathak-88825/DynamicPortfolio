@@ -31,6 +31,7 @@
     justify-content: space-around;
     align-items: center;
     overflow-x:hidden;
+    /* this is for skills bar to hidden it */
  }
  .homeSkills>h3{
     text-align: center;
@@ -39,13 +40,14 @@
     font-size: 4vmax;
  }
  .homeCubeSkills{
-   width: 300px;
-   height:300px;
+   width: 200px;
+   height:200px;
    /* transform: rotateY(20deg); */
    animation: cubeRotation 15s linear infinite alternate;
    transform-style: preserve-3d;
 }
- .homeCubeSkillsFaces{
+.homeCubeSkillsFaces
+{
    display: flex;
    align-items: center;
    justify-content: center;
@@ -78,8 +80,69 @@
  .homeCudeSkillsFace6{
    transform: rotateX(-90deg) translate3d(0,0,150px);
  }
+
+ .cubeShadow{
+  width: 300px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.17);
+  border-radius: 56%;
+  animation: cubeShadow 1s ease-in-out  infinite alternate;
+  filter: blur(2px);
+ }
+ .homeskillsBox{
+  padding: 0 2vmax;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: -100px;
+  background-color: hsl(250, 100% , 75%);
+  /* animation: homeskillsBoxAnimationOn 2s linear forwards; */
+  /* forwards se aake ruk jayega */
+  /* animation: homeskillsBoxAnimationOn 1s linear forwards;
+  animation: homeskillsBoxAnimationOff 1s linear forwards; */
+ /* we use these in scrooll event listener  just specify the propertiees*/
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-timing-function: linear;
+ 
+}
+ .homeskillsBox > svg{
+  /* height: 60px; */
+  /* width: 50px; */
+  font-size: 3.5vmax;
+  color: rgb(255,255,255);
+  transition: all 0.5s;
+  margin: 10px;
+ }
+ .homeskillsBox > svg:hover{
+  transform :scale(1.5);
+ }
  @keyframes cubeRotation {
    to{
    transform: rotateY(360deg) rotateX(480deg) rotateZ(720deg);
    }
  }
+ @keyframes cubeShadow 
+ {
+  to{
+    transform: scale(1.2) translateY(-20px);
+    /* upar niche karne ke liye and size  bda karne ke liye */
+  }
+  }
+
+  @keyframes homeskillsBoxAnimationOn {
+    from{
+      right:-300px;
+    }
+    to{
+      right :40px;
+    }
+  }
+  @keyframes homeskillsBoxAnimationOff {
+    from{
+      right :40px;
+    }
+    to{
+      right:-300px;
+    }
+  }

@@ -10,6 +10,17 @@ import spaceImage from "../../Images/space.jpg";
 
 import { Typography } from "@mui/material";
 import TimeLine from "../TimeLine/TimeLine";
+import {
+  SiCplusplus,
+  SiReact,
+  SiJavascript,
+  SiMongodb,
+  SiNodedotjs,
+  SiExpress,
+  SiCss3,
+  SiHtml5,
+  SiThreedotjs,
+} from "react-icons/si";
 const Home = () => {
   useEffect(() => {
     const textureLoader = new THREE.TextureLoader();
@@ -122,7 +133,20 @@ const Home = () => {
             />
           </div>
         </div>
+        <div className="cubeShadow"> </div>
+        <div className="homeskillsBox" id="homeskillsBox">
+          <SiCplusplus />
+          <SiHtml5 />
+          <SiCss3 />
+          <SiJavascript />
+          <SiMongodb />
+          <SiExpress />
+          <SiReact />
+          <SiNodedotjs />
+          <SiThreedotjs />
+        </div>
       </div>
+      
     </div>
   );
 };
