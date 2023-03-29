@@ -94,7 +94,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  right: -100px;
+  right: -300px;
   background-color: hsl(250, 100% , 75%);
   /* animation: homeskillsBoxAnimationOn 2s linear forwards; */
   /* forwards se aake ruk jayega */
