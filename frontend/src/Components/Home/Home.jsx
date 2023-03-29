@@ -152,20 +152,13 @@ const Home = () => {
         <Typography variant="h3"> YOUTUBE VIDEOS</Typography>
         
         <div className="homeYoutubeWrapper">
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
-          <YoutubeCard/>
+          <YoutubeCard image="https://i9.ytimg.com/vi/Cx2AEH1GWos/mqdefault.jpg?v=60a9e074&sqp=CIDXkqEG&rs=AOn4CLDn60xvDTWs5LP_FzfSz6ELBFIrOw" title="WELCOME TO NSUT CAMPUS TOUR"/>
+          <YoutubeCard url="https://www.youtube.com/watch?v=FJXCB-Ctvqc" image="https://i9.ytimg.com/vi_webp/FJXCB-Ctvqc/mqdefault.webp?v=61e28500&sqp=CIDXkqEG&rs=AOn4CLD7Fc4gOL5lwx_HXYfB5p6583DOeg" title="Crying Colours || Code: CRYCOLR "/>
+          <YoutubeCard image="https://i9.ytimg.com/vi/Cx2AEH1GWos/mqdefault.jpg?v=60a9e074&sqp=CIDXkqEG&rs=AOn4CLDn60xvDTWs5LP_FzfSz6ELBFIrOw" title="WELCOME TO NSUT CAMPUS TOUR"/>
+          <YoutubeCard url="https://www.youtube.com/watch?v=FJXCB-Ctvqc" image="https://i9.ytimg.com/vi_webp/FJXCB-Ctvqc/mqdefault.webp?v=61e28500&sqp=CIDXkqEG&rs=AOn4CLD7Fc4gOL5lwx_HXYfB5p6583DOeg" title="Crying Colours || Code: CRYCOLR "/>
+          <YoutubeCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHJOj_a8v3N3jfNKnnpg-fvHqfmmVZD53DWw&usqp=CAU" title="WELCOME TO NSUT CAMPUS TOUR"/>
+          <YoutubeCard url="https://www.youtube.com/watch?v=FJXCB-Ctvqc" image="https://i9.ytimg.com/vi_webp/FJXCB-Ctvqc/mqdefault.webp?v=61e28500&sqp=CIDXkqEG&rs=AOn4CLD7Fc4gOL5lwx_HXYfB5p6583DOeg" title="Crying Colours || Code: CRYCOLR "/>
+        
         </div>
         </div>
     </div>
