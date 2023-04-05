@@ -57,22 +57,65 @@ const Home = () => {
     pointLight2.position.set(-8, -5, -5);
 
     //  const lightHelper=new THREE.PointLightHelper(pointLight);
-    const controls = new OrbitControls(camera, renderer.domElement);
+    // const controls = new OrbitControls(camera, renderer.domElement);
     scene.add(moon);
     scene.add(venus);
     scene.add(pointLight);
     scene.add(pointLight2);
     scene.background = spaceTexture;
-    //  scene.add(lightHelper);
+    //  scene.add(lightHelper);  grid form to view easily
+
+    const constSpeed = 0.01;
+    window.addEventListener("mousemove", (e) => {
+      if (e.clientX <= window.innerWidth / 2) {
+        moon.rotation.x -= constSpeed;
+        moon.rotation.y += constSpeed;
+        venus.rotation.x -= constSpeed;
+        venus.rotation.y += constSpeed;
+      }
+
+      if (e.clientX > window.innerWidth / 2) {
+        moon.rotation.x -= constSpeed;
+        moon.rotation.y -= constSpeed;
+        venus.rotation.x -= constSpeed;
+        venus.rotation.y -= constSpeed;
+      }
+
+      if (e.clientY > window.innerHeight / 2) {
+        moon.rotation.x -= constSpeed;
+        moon.rotation.y += constSpeed;
+        venus.rotation.x -= constSpeed;
+        venus.rotation.y += constSpeed;
+      }
+
+      if (e.clientY <= window.innerHeight / 2) {
+        moon.rotation.x -= constSpeed;
+        moon.rotation.y -= constSpeed;
+        venus.rotation.x -= constSpeed;
+        venus.rotation.y -= constSpeed;
+      }
+    });
 
     const animate = () => {
       requestAnimationFrame(animate);
-      moon.rotation.y += 0.01;
+      moon.rotation.y += 0.001;
       venus.rotation.y += 0.001;
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.render(scene, camera);
     };
     animate();
+    return window.addEventListener("scroll", () => {
+      camera.rotation.z = window.scrollY * 0.001;
+      camera.rotation.y = window.scrollY * 0.003;
+
+      const skillsBox = document.getElementById("homeskillsBox");
+
+      if (window.scrollY > 1500) {
+        skillsBox.style.animationName = "homeskillsBoxAnimationOn";
+      } else {
+        skillsBox.style.animationName = "homeskillsBoxAnimationOff";
+      }
+    });
   }, []);
   return (
     <div className="home">
