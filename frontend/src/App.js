@@ -6,6 +6,8 @@ import Footer from "./Components/Footer/Footer";
 import About from "./Components/About/About";
 import Projects from "./Components/Projects/Projects";
 import Contact from "./Components/Contact/Contact";
+import Login from "./Components/Login/Login";
+
 function App() {
   return (
     <Router>
@@ -15,6 +17,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/account" element={<Login />} />
       </Routes>
       <Footer/>
     </Router>
