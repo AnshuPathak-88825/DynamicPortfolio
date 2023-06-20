@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-import { emitWarning } from "process";
-const userSchema = mongoose.Schema({
+const userSchema =new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -74,4 +73,4 @@ const userSchema = mongoose.Schema({
     },
   },
 });
-export const user = mongoose.model("user", userSchema);
+export const User = mongoose.model("User", userSchema);
