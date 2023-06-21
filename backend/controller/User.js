@@ -106,17 +106,23 @@ export const contact = async (req, res) => {
     });
   }
 };
-
 export const updateUser = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
-    const { name, email, skills, projects } = req.body;
+
+    const { name, email, password, skills, about } = req.body;
+
     if (name) {
       user.name = name;
     }
+
     if (email) {
       user.email = email;
     }
+    if (password) {
+      user.password = password;
+    }
+
     if (skills) {
       if (skills.image1) {
         await cloudinary.v2.uploader.destroy(user.skills.image1.public_id);
@@ -190,6 +196,208 @@ export const updateUser = async (req, res) => {
         };
       }
     }
+
+    if (about) {
+      if (about.name) {
+        user.about.name = about.name;
+      }
+      if (about.title) {
+        user.about.title = about.title;
+      }
+      if (about.subtitle) {
+        user.about.subtitle = about.subtitle;
+      }
+
+      if (about.description) {
+        user.about.description = about.description;
+      }
+      if (about.quote) {
+        user.about.quote = about.quote;
+      }
+
+      if (about.avatar) {
+        await cloudinary.v2.uploader.destroy(user.about.avatar.public_id);
+
+        const myCloud = await cloudinary.v2.uploader.upload(about.avatar, {
+          folder: "portfolio",
+        });
+
+        user.about.avatar = {
+          public_id: myCloud.public_id,
+          url: myCloud.secure_url,
+        };
+      }
+    }
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "User Updated Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+
+export const addTimeline = async (req, res) => {
+  try {
+    const { title, description, date } = req.body;
+    const user = await User.findById(req.user._id);
+    // add to top of array not as push_back
+    user.timeline.unshift({
+      title,
+      description,
+      date,
+    });
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "User timeline added Successfully",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+export const addYoutube = async (req, res) => {
+  try {
+    const { url, title, image } = req.body;
+    const user = await User.findById(req.user._id);
+    const myCloud = await cloudinary.v2.uploader.upload(image, {
+      folder: "portfolio",
+    });
+    // add to top of array not as push_back
+    user.youtube.unshift({
+      title,
+      url,
+      image: {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      },
+    });
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "User Youtube Videos added Successfully",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+
+
+export const addProject= async (req, res) => {
+  try {
+    const { url, title, image ,description,techStack} = req.body;
+    const user = await User.findById(req.user._id);
+    const myCloud = await cloudinary.v2.uploader.upload(image, {
+      folder: "portfolio",
+    });
+    // add to top of array not as push_back
+    user.projects.unshift({
+      description,
+      techStack,
+      title,
+      url,
+      image: {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      },
+    });
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "User Project added Successfully",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+
+export const deleteTimeline = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(req.user._id);
+    user.timeline = user.timeline.filter((item) => item._id != id);
+    // user.timline.pop();
+    await user.save();
+    res.status(200).json({
+      success: true,
+      message: "Deleted from Timline",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+export const deleteYoutube = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findById(req.user._id);
+
+    const video = user.youtube.find((video) => video._id == id);
+
+    await cloudinary.v2.uploader.destroy(video.image.public_id);
+
+    user.youtube = user.youtube.filter((video) => video._id != id);
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Deleted from Youtube",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export const deleteProject = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findById(req.user._id);
+
+    const project = user.projects.find((item) => item._id == id);
+
+    await cloudinary.v2.uploader.destroy(project.image.public_id);
+
+    user.projects = user.projects.filter((item) => item._id != id);
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Deleted from Projects",
+    });
   } catch (error) {
     return res.status(400).json({
       success: false,
