@@ -7,8 +7,15 @@ import About from "./Components/About/About";
 import Projects from "./Components/Projects/Projects";
 import Contact from "./Components/Contact/Contact";
 import Login from "./Components/Login/Login";
+import {useEffect } from "react";
+import {useDispatch} from 'react-redux';
+import { getUser } from "./actions/user";
 
 function App() {
+  const dispatch=useDispatch();
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
   return (
     <Router>
       <Header />

@@ -1,11 +1,17 @@
 import { Button, Typography } from "@mui/material";
 import React, {useState } from "react";
-import "./Login.css"
+import {useDispatch} from "react-redux"
+import "./Logincss.css"
+import {login} from "../../actions/user.js"
 const Login = () => {
     const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
+  const dispatch=useDispatch();
+
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(login(email,password));
   };
   return (
     <div className="login">

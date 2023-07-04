@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./Home.css";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { MeshBasicMaterial, MeshStandardMaterial } from "three";
 
 import moonImage from "../../Images/moon.jpg";
