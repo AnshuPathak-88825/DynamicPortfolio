@@ -16,6 +16,8 @@
     "node": "^19.8.1",
     "overlay-navbar": "^1.2.3",
     "react": "^18.2.0",
+    "react-alert": "^7.0.3",
+    "react-alert-template-basic": "^1.0.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
@@ -24,7 +26,6 @@
     "three": "^0.150.1",
     "web-vitals": "^2.1.4"
   },
-    
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
