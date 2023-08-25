@@ -13,6 +13,7 @@ import { getUser,loadUser } from "./actions/user";
 import AdminPanel from "./Components/Admin/AdminPanel.js"
 function App() {
   const {isAuthenticated}=useSelector((state)=>state.login);
+  const {loading,user}=useSelector((state)=>state.user);
   console.log(isAuthenticated);
   const dispatch=useDispatch();
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
   }, [dispatch]);
   return (
     <Router>
+      {loading?<div>loading</div>:<> 
       <Header />
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
@@ -29,7 +31,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/account" element={isAuthenticated ? <AdminPanel/> :<Login />} />
       </Routes>
-      <Footer/>
+      <Footer/></>}
+     
     </Router>
   );
 }
