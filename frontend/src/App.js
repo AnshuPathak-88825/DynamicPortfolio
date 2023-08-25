@@ -8,23 +8,26 @@ import Projects from "./Components/Projects/Projects";
 import Contact from "./Components/Contact/Contact";
 import Login from "./Components/Login/Login";
 import {useEffect } from "react";
-import {useDispatch} from 'react-redux';
-import { getUser } from "./actions/user";
-
+import {useDispatch,useSelector} from 'react-redux';
+import { getUser,loadUser } from "./actions/user";
+import AdminPanel from "./Components/Admin/AdminPanel.js"
 function App() {
+  const {isAuthenticated}=useSelector((state)=>state.login);
+  console.log(isAuthenticated);
   const dispatch=useDispatch();
   useEffect(() => {
     dispatch(getUser());
+    dispatch(loadUser());
   }, [dispatch]);
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/account" element={<Login />} />
+        <Route path="/account" element={isAuthenticated ? <AdminPanel/> :<Login />} />
       </Routes>
       <Footer/>
     </Router>
