@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Button } from "@mui/material";
 import { AiOutlineProject } from "react-icons/ai";
 import { FaYoutube } from "react-icons/fa";
 import { MdTimeline } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { logout } from "../../actions/user";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, updateUser } from "../../actions/user";
+import { useAlert } from "react-alert";
 import "./AdminPanel.css";
 const AdminPanel = () => {
+  const alert = useAlert();
+  const { message: loginMessage } = useSelector((state) => state.login);
+  const { message, error, loading } = useSelector((state) => state.update);
+
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,47 +21,64 @@ const AdminPanel = () => {
   const [about, setAbout] = useState({});
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(updateUser(name, email, password, skills, about));
   };
   const logoutHandler = () => {
     dispatch(logout());
   };
   const handleAboutImage = (e) => {
-    const file = e.target.file[0];
+    const file = e.target.files[0];
     const Reader = new FileReader();
     Reader.readAsDataURL(file);
     Reader.onload = () => {
       if (Reader.readyState === 2) {
-        setAbout(...about, { avatar: Reader.result });
+        setAbout({...about, avatar: Reader.result });
       }
     };
   };
   const handleImages = (e, val) => {
-    const file = e.target.file[0];
+    const file = e.target.files[0];
+    console.log(e.target.files);
     const Reader = new FileReader();
     Reader.readAsDataURL(file);
     Reader.onload = () => {
       if (Reader.readyState === 2) {
         if (val === 1) {
-          setSkills(...skills, { image1: Reader.result });
+          setSkills({ ...skills, image1: Reader.result });
         }
         if (val === 2) {
-          setSkills(...skills, { image2: Reader.result });
+          setSkills({ ...skills, image2: Reader.result });
         }
         if (val === 3) {
-          setSkills(...skills, { image3: Reader.result });
+          setSkills({ ...skills, image3: Reader.result });
         }
         if (val === 4) {
-          setSkills(...skills, { image4: Reader.result });
+          setSkills({ ...skills, image4: Reader.result });
         }
         if (val === 5) {
-          setSkills(...skills, { image5: Reader.result });
+          setSkills({ ...skills, image5: Reader.result });
         }
         if (val === 6) {
-          setSkills(...skills, { image6: Reader.result });
+          setSkills({ ...skills, image6: Reader.result });
         }
       }
     };
   };
+
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch({ type: "CLEAR_ERRORS" });
+    }
+    if (message) {
+      alert.success(message);
+      dispatch({ type: "CLEAR_MESSAGE" });
+    }
+    if (loginMessage) {
+      alert.success(loginMessage);
+      dispatch({ type: "CLEAR_MESSAGE" });
+    }
+  }, [alert, error, message, dispatch, loginMessage]);
 
   return (
     <div className="adminPanel">
@@ -223,9 +245,9 @@ const AdminPanel = () => {
             PROJECTS <AiOutlineProject />
           </Link>
 
-          {/* <Button type="submit" variant="contained" disabled={loading}>
+          <Button type="submit" variant="contained" disabled={loading}>
             Update
-          </Button> */}
+          </Button>
         </form>
 
         <Button
