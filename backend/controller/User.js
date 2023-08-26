@@ -244,7 +244,6 @@ export const updateUser = async (req, res) => {
   }
 };
 
-
 export const addTimeline = async (req, res) => {
   try {
     const { title, description, date } = req.body;
@@ -300,11 +299,9 @@ export const addYoutube = async (req, res) => {
   }
 };
 
-
-
-export const addProject= async (req, res) => {
+export const addProject = async (req, res) => {
   try {
-    const { url, title, image ,description,techStack} = req.body;
+    const { url, title, image, description, techStack } = req.body;
     const user = await User.findById(req.user._id);
     const myCloud = await cloudinary.v2.uploader.upload(image, {
       folder: "portfolio",
@@ -334,7 +331,6 @@ export const addProject= async (req, res) => {
     });
   }
 };
-
 
 export const deleteTimeline = async (req, res) => {
   try {
