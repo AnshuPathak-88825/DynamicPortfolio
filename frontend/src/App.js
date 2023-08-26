@@ -13,6 +13,7 @@ import { getUser, loadUser } from "./actions/user";
 import AdminPanel from "./Components/Admin/AdminPanel.js";
 import TimeLine from "./Components/Admin/TimeLine";
 import Youtube from "./Components/Admin/Youtube"
+import Project from "./Components/Admin/Project.js"
 function App() {
   const { isAuthenticated } = useSelector((state) => state.login);
   const { loading, user } = useSelector((state) => state.user);
@@ -45,6 +46,10 @@ function App() {
              <Route
               path="/admin/youtube"
               element={isAuthenticated ? <Youtube /> : <Login />}
+            />
+            <Route
+              path="/admin/project"
+              element={isAuthenticated ? < Project /> : <Login />}
             />
           </Routes>
           <Footer />

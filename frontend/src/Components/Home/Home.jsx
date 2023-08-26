@@ -118,7 +118,6 @@ const Home = () => {
   }, []);
   return (
     <div className="home">
-
       <canvas className="homeCanvas"></canvas>
       <div className="homeContainer">
         <Typography variant="h3">TIMELINE</Typography>
@@ -190,18 +189,42 @@ const Home = () => {
         </div>
       </div>
       <div className="homeYoutube">
-
         <Typography variant="h3"> YOUTUBE VIDEOS</Typography>
-        
+
         <div className="homeYoutubeWrapper">
-          <YoutubeCard image="https://i9.ytimg.com/vi/Cx2AEH1GWos/mqdefault.jpg?v=60a9e074&sqp=CIyClKEG&rs=AOn4CLBiFA-W_UWJQGTd0m-Z5p0S1YCI1Q" title="WELCOME TO NSUT CAMPUS TOUR"/>
-          <YoutubeCard url="https://www.youtube.com/watch?v=FJXCB-Ctvqc" image="https://i9.ytimg.com/vi_webp/FJXCB-Ctvqc/mqdefault.webp?v=61e28500&sqp=CLiElKEG&rs=AOn4CLDzsLfAlwZl6WKMUzZUBlLQC0fG4Q" title="Crying Colours || Code: CRYCOLR "/>
-          <YoutubeCard image="https://i9.ytimg.com/vi/Cx2AEH1GWos/mqdefault.jpg?v=60a9e074&sqp=CIyClKEG&rs=AOn4CLBiFA-W_UWJQGTd0m-Z5p0S1YCI1Q" title="WELCOME TO NSUT CAMPUS TOUR"/>
-          <YoutubeCard url="https://www.youtube.com/watch?v=FJXCB-Ctvqc" image="https://i9.ytimg.com/vi_webp/FJXCB-Ctvqc/mqdefault.webp?v=61e28500&sqp=CLiElKEG&rs=AOn4CLDzsLfAlwZl6WKMUzZUBlLQC0fG4Q" title="Crying Colours || Code: CRYCOLR "/>
-          <YoutubeCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHJOj_a8v3N3jfNKnnpg-fvHqfmmVZD53DWw&usqp=CAU" title="WELCOME TO NSUT CAMPUS TOUR"/>
-          <YoutubeCard url="https://www.youtube.com/watch?v=FJXCB-Ctvqc" image="https://i9.ytimg.com/vi_webp/FJXCB-Ctvqc/mqdefault.webp?v=61e28500&sqp=CLiElKEG&rs=AOn4CLDzsLfAlwZl6WKMUzZUBlLQC0fG4Q" title="Crying Colours || Code: CRYCOLR "/>
+          <YoutubeCard
+            image="https://i9.ytimg.com/vi/Cx2AEH1GWos/mqdefault.jpg?v=60a9e074&sqp=CIyClKEG&rs=AOn4CLBiFA-W_UWJQGTd0m-Z5p0S1YCI1Q"
+            title="WELCOME TO NSUT CAMPUS TOUR"
+            isAdmin={true}
+          />
+          <YoutubeCard
+            url="https://www.youtube.com/watch?v=FJXCB-Ctvqc"
+            image="https://i9.ytimg.com/vi_webp/FJXCB-Ctvqc/mqdefault.webp?v=61e28500&sqp=CLiElKEG&rs=AOn4CLDzsLfAlwZl6WKMUzZUBlLQC0fG4Q"
+            title="Crying Colours || Code: CRYCOLR "
+            isAdmin={true}
+          />
+          <YoutubeCard
+            image="https://i9.ytimg.com/vi/Cx2AEH1GWos/mqdefault.jpg?v=60a9e074&sqp=CIyClKEG&rs=AOn4CLBiFA-W_UWJQGTd0m-Z5p0S1YCI1Q"
+            title="WELCOME TO NSUT CAMPUS TOUR"
+          />
+          <YoutubeCard
+            url="https://www.youtube.com/watch?v=FJXCB-Ctvqc"
+            image="https://i9.ytimg.com/vi_webp/FJXCB-Ctvqc/mqdefault.webp?v=61e28500&sqp=CLiElKEG&rs=AOn4CLDzsLfAlwZl6WKMUzZUBlLQC0fG4Q"
+            title="Crying Colours || Code: CRYCOLR "
+            isAdmin={true}
+          />
+          <YoutubeCard
+            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHJOj_a8v3N3jfNKnnpg-fvHqfmmVZD53DWw&usqp=CAU"
+            title="WELCOME TO NSUT CAMPUS TOUR"
+          />
+          <YoutubeCard
+            url="https://www.youtube.com/watch?v=FJXCB-Ctvqc"
+            image="https://i9.ytimg.com/vi_webp/FJXCB-Ctvqc/mqdefault.webp?v=61e28500&sqp=CLiElKEG&rs=AOn4CLDzsLfAlwZl6WKMUzZUBlLQC0fG4Q"
+            title="Crying Colours || Code: CRYCOLR "
+            isAdmin={true}
+          />
         </div>
-        </div>
+      </div>
     </div>
   );
 };
