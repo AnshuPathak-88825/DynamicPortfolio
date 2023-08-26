@@ -41,7 +41,10 @@ function App() {
               }
             />
             <Route path="/about" element={<About about={user.about} />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route
+              path="/projects"
+              element={<Projects projects={user.projects} />}
+            />
             <Route path="/contact" element={<Contact />} />
             <Route
               path="/account"

@@ -46,9 +46,7 @@ export const ProjectCard = ({
     </>
   );
 };
-
-const Projects = () => {
-  const projects = [1, 2, 3];
+const Projects = ({ projects }) => {
   return (
     <div className="projects">
       <Typography variant="h3">
@@ -58,20 +56,22 @@ const Projects = () => {
       <div className="projectsWrapper">
         {projects.map((item) => (
           <ProjectCard
-            url="https://ankit-11525.github.io/e-commerce_redstore.github.io/"
-            projectImage="https://user-images.githubusercontent.com/75976169/193442392-76cea148-631a-4d45-9cf3-2db27c32c1b0.png"
-            projectTitle="RedStore - An eCommerce Website"
-            description="RedStore is a fully responsive ecommerce website, built using HTML, CSS, and JavaScript."
-            technologies="html css js react"
+            id={item._id}
+            key={item._id}
+            url={item.url}
+            projectImage={item.image.url}
+            projectTitle={item.title}
+            description={item.description}
+            technologies={item.techStack}
           />
         ))}
       </div>
 
       <Typography variant="h3" style={{ font: "100 1.2rem 'Ubuntu Mono'" }}>
-        All The Projects Shown Above <FaRegSmileWink />
+        All The Projects Shown Above Are Made By Me <FaRegSmileWink />
       </Typography>
     </div>
   );
 };
 
-export default ProjectCard;
+export default Projects;
