@@ -12,12 +12,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUser, loadUser } from "./actions/user";
 import AdminPanel from "./Components/Admin/AdminPanel.js";
 import TimeLine from "./Components/Admin/TimeLine";
-import Youtube from "./Components/Admin/Youtube"
-import Project from "./Components/Admin/Project.js"
+import Youtube from "./Components/Admin/Youtube";
+import Project from "./Components/Admin/Project.js";
 function App() {
   const { isAuthenticated } = useSelector((state) => state.login);
   const { loading, user } = useSelector((state) => state.user);
-  console.log(isAuthenticated);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUser());
@@ -31,8 +30,17 @@ function App() {
         <>
           <Header />
           <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
-            <Route path="/about" element={<About />} />
+            <Route
+              path="/"
+              element={
+                <Home
+                  youtubes={user.youtube}
+                  timelines={user.timeline}
+                  skills={user.skills}
+                />
+              }
+            />
+            <Route path="/about" element={<About about={user.about} />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route
@@ -43,13 +51,13 @@ function App() {
               path="/admin/timeline"
               element={isAuthenticated ? <TimeLine /> : <Login />}
             />
-             <Route
+            <Route
               path="/admin/youtube"
               element={isAuthenticated ? <Youtube /> : <Login />}
             />
             <Route
               path="/admin/project"
-              element={isAuthenticated ? < Project /> : <Login />}
+              element={isAuthenticated ? <Project /> : <Login />}
             />
           </Routes>
           <Footer />
