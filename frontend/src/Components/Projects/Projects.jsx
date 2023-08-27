@@ -4,16 +4,23 @@ import "./Projects.css";
 import { AiOutlineProject } from "react-icons/ai";
 import { Delete } from "@mui/icons-material";
 import { FaRegSmileWink } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import {deleteProject,getUser} from "../../actions/user"
 
-const ProjectCard = ({
+export const ProjectCard = ({
   url,
   projectImage,
   projectTitle,
   description,
   technologies,
-  isAdmin = false,
+  isAdmin = false,id
 }) => {
+  const dispatch = useDispatch();
 
+  const deleteHandler = async (id) => {
+    await dispatch(deleteProject(id));
+    dispatch(getUser());
+  };
   return (
     <>
       <a href={url} className="projectCard" target="blank">
@@ -31,7 +38,7 @@ const ProjectCard = ({
       {isAdmin && (
         <Button
           style={{ color: "rgba(40,40,40,0.7)" }}
-        //   onClick={() => deleteHandler(id)}
+            onClick={() => deleteHandler(id)}
         >
           <Delete />
         </Button>
@@ -39,9 +46,7 @@ const ProjectCard = ({
     </>
   );
 };
-
-const Projects = () => {
-    const projects=[1,2,3];
+const Projects = ({ projects }) => {
   return (
     <div className="projects">
       <Typography variant="h3">
@@ -51,17 +56,19 @@ const Projects = () => {
       <div className="projectsWrapper">
         {projects.map((item) => (
           <ProjectCard
-            url="https://ankit-11525.github.io/e-commerce_redstore.github.io/"
-            projectImage="https://user-images.githubusercontent.com/75976169/193442392-76cea148-631a-4d45-9cf3-2db27c32c1b0.png"
-            projectTitle="RedStore - An eCommerce Website"
-            description="RedStore is a fully responsive ecommerce website, built using HTML, CSS, and JavaScript."
-            technologies="html css js react"
+            id={item._id}
+            key={item._id}
+            url={item.url}
+            projectImage={item.image.url}
+            projectTitle={item.title}
+            description={item.description}
+            technologies={item.techStack}
           />
         ))}
       </div>
 
       <Typography variant="h3" style={{ font: "100 1.2rem 'Ubuntu Mono'" }}>
-        All The Projects Shown Above  <FaRegSmileWink />
+        All The Projects Shown Above Are Made By Me <FaRegSmileWink />
       </Typography>
     </div>
   );
