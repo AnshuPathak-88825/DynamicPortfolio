@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
-import "./Home.css";
-import * as THREE from "three";
-import { MeshBasicMaterial, MeshStandardMaterial } from "three";
+import React from "react";
+// import React, { useEffect } from "react";
 
-import moonImage from "../../Images/moon.jpg";
-import venusImage from "../../Images/venus.jpg";
-import spaceImage from "../../Images/space.jpg";
+import "./Home.css";
+// import * as THREE from "three";
+// import { MeshBasicMaterial, MeshStandardMaterial } from "three";
+
+// import moonImage from "../../Images/moon.jpg";
+// import venusImage from "../../Images/venus.jpg";
+// import spaceImage from "../../Images/space.jpg";
 
 import { Typography } from "@mui/material";
 import TimeLine from "../TimeLine/TimeLine";
@@ -152,14 +154,14 @@ const Home = ({ timelines, youtubes, skills }) => {
           <div className="homeCubeSkillsFaces homeCudeSkillsFace4">
             <img
               src={skills.image4.url}
-              alt="Face5"
+              alt="Face4"
               // height="200px"
               // width="200px"
             />
           </div>
-          <div className="homeCubeSkillsFaces homeCudeSkillsFace6">
+          <div className="homeCubeSkillsFaces homeCudeSkillsFace5">
             <img src={skills.image5.url}
-              alt="Face6"
+              alt="Face5"
               // height="200px"
               // width="200px"
             />
