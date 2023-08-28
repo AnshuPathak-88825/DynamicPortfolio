@@ -1,7 +1,8 @@
 import { User } from "../model/User.js";
 import jwt from "jsonwebtoken";
 import cloudinary from "cloudinary";
-import { sendMail } from "../midllewares/sendMail.js";
+import { sendEmail } from "../midllewares/sendMail.js";
+
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -94,8 +95,15 @@ export const contact = async (req, res) => {
   try {
     const { name, email, message } = req.body;
     const userMessage = `Hello , I am ${name}. My email is ${email}. My message is ${message}. `;
+    const option = {
+      email: email,
+      subject: "CONTACT REQUEST FROM PORTFOLIO",
+      message: userMessage,
+    };
     
-    await sendMail(userMessage);
+    sendEmail(option);
+    
+    // await sendMail(userMessage);
     return res.status(200).json({
       success: true,
       message: "Message Sent Successfully",
