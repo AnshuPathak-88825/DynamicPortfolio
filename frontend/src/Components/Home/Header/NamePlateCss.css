@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=La+Belle+Aurore&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+.home-page .text-zone {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  /* margin-bottom: 100px; */
+  transform: translateY(-50%);
+  width: 40%;
+  max-height: 90%;
+  /* background-color: rgb(178, 178, 224); */
+  /* border: rgb(0, 255, 221) solid 2px; */
+  /* background: #1e1e1e; */
+  background-color: #0B111E;
+}
+.home-page h1 {
+  color:rgb(2, 85, 85);
+  font-size: 56px;
+  line-height: 53px;
+  /* border: rgb(29, 11, 11) solid 2px; */
+
+  margin: 0;
+  font-family: 'Black Ops One', cursive;
+/* font-family: 'La Belle Aurore', cursive; */
+  font-weight: 400;
+}
+.home-page h1:before {
+  content: '<h1>';
+  font-family: 'La Belle Aurore', cursive;
+  color: #9580FF;
+  font-size: 28px;
+  position: absolute;
+  margin-top: -40px;
+  left: -15px;
+  opacity: 1;
+}
+.home-page h1:after {
+  content: '<h1/>';
+  font-family: 'La Belle Aurore', cursive;
+  color: #9580FF;
+  font-size: 28px;
+  position: absolute;
+  margin-top: 18px;
+  margin-left: 20px;
+  animation: fadeIn 1s 1.7s backwards;
+  opacity: 1;
+}
+.home-page h2 {
+  color: rgb(88, 134, 134);
+  margin-top: 20px;
+  font-weight: 400;
+  /* border: red solid 2px; */
+
+  font-size: 30px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 3px;
+  animation: fadeIn 1s 1.8s backwards;
+}
+.home-page .flat-button {
+  color: #00ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  font-family: 'Lato', sans-serif;
+  text-decoration: none;
+  padding: 10px 18px;
+  border: 1px solid rgb(32, 75, 75);
+  margin-top: 25px;
+  border-radius: 7px;
+  float: left;
+  animation: fadeInAnimation 1s 1.8s backwards;
+  white-space: nowrap;
+}
+.home-page .flat-button:hover {
+  background: #00ffffff;
+  color: #333;
+}
+@media screen and (max-width: 1200px) {
+  .tags, .home-page h1:before, .home-page h1:after {
+    display: none;
+ }
+  .home-page .text-zone {
+    position: initial;
+    width: 40%;
+    transform: none;
+    padding: 10px;
+    box-sizing: border-box;
+ }
+  .home-page .flat-button {
+    float: none;
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 124px;
+ }
+}

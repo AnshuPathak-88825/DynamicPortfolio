@@ -1,13 +1,14 @@
-.homeCanvas {
-    width: 100vw;
-    height: 100vh;
-    max-width: 100%;
+.first{
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  background-color: #0B111E;
 }
-
 .homeContainer {
+  transform: translateY(-70px);
     background-color: white;
     padding-top: 5vmax;
-    border-radius: 0 0 200px 200px;
+    border-radius: 10%;
     border-bottom: 200px solid white;
     position: relative;
     z-index: 1;
