@@ -10,6 +10,7 @@ const Header = () => {
       burgerColorHover="hsl(250, 100%, 75%)"
       logo={logo}
       logoWidth="250px"
+      logoRadius="50px"
       logoHoverColor="hsl(250, 100%, 75%)"
       nav2justifyContent="space-around"
       nav3justifyContent="space-around"

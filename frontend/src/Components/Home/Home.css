@@ -1,13 +1,14 @@
-.homeCanvas {
-    width: 100vw;
-    height: 100vh;
-    max-width: 100%;
+.first{
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  background-color: #0B111E;
 }
-
 .homeContainer {
+  transform: translateY(-70px);
     background-color: white;
     padding-top: 5vmax;
-    border-radius: 0 0 200px 200px;
+    border-radius: 10%;
     border-bottom: 200px solid white;
     position: relative;
     z-index: 1;
@@ -98,8 +99,8 @@
   background-color: hsl(250, 100% , 75%);
   /* animation: homeskillsBoxAnimationOn 2s linear forwards; */
   /* forwards se aake ruk jayega */
-  /* animation: homeskillsBoxAnimationOn 1s linear forwards;
-  animation: homeskillsBoxAnimationOff 1s linear forwards; */
+  /* animation: homeskillsBoxAnimationOn 1s linear forwards; */
+  /* animation: homeskillsBoxAnimationOff 1s linear forwards;  */
  /* we use these in scrooll event listener  just specify the propertiees*/
  animation-duration: 1s;
  animation-fill-mode: forwards;
@@ -131,6 +132,7 @@
   text-align: center;
   color: rgba(22, 20, 20, 0.904);
   padding: 4vmax;
+
 }
 
 .homeYoutubeWrapper {
@@ -139,6 +141,7 @@
   justify-content: center;
   padding: 2vmax;
   width: 80%;
+
   margin: auto;
 }
 

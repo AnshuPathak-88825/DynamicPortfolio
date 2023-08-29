@@ -1,18 +1,30 @@
-import { createTransport } from "nodemailer";
-export const sendMail = async (text) => {
-  const transporter = createTransport({
-    host: process.env.SMPT_HOST,
-    port: process.env.SMPT_PORT,
+import nodemailer from "nodemailer";
+
+
+
+const sendEmail = async (options) => {
+
+  const transporter = nodemailer.createTransport({
+    service: process.env.SMTP_SERVICE,
     auth: {
-      user: process.env.SMPT_USER,
-      pass: process.env.SMPT_PASSWORD,
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD,
     },
-    // from mailtrap website  intergrations
   });
-  await transporter.sendMail({
-    subject: "CONTACT MESSAGE REQUEST FROM PORTFOLIO",
-    to: process.env.MYMAIL,
-    from: process.env.MYMAIL,
-    text,
-  });
+
+  const mailOptions = {
+    from: process.env.SMTP_MAIL,
+    to: options.email,
+    subject: options.subject,
+    text: options.message,
+  };zz
+
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent:", info.response);
+  } catch (error) {
+    console.error("Error sending email:", error);
+  }
 };
+
+export { sendEmail };
