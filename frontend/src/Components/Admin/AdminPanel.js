@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout, updateUser } from "../../actions/user";
 import { useAlert } from "react-alert";
 import "./AdminPanel.css";
+import { SiHashnode } from "react-icons/si";
+
 const AdminPanel = () => {
   const alert = useAlert();
   const { message: loginMessage } = useSelector((state) => state.login);
@@ -239,7 +241,7 @@ const AdminPanel = () => {
             TIMELINE <MdTimeline />
           </Link>
           <Link to="/admin/youtube">
-            YOUTUBE <FaYoutube />
+            HASHNODE <SiHashnode />
           </Link>
           <Link to="/admin/project">
             PROJECTS <AiOutlineProject />

@@ -37,7 +37,7 @@ const TimeLine = () => {
       dispatch({ type: "CLEAR_MESSAGE" });
     }
   }, [alert, error, message, dispatch]);
-
+console.log(user);
   return (
     <div className="adminPanel">
       <div className="adminPanelContainer">

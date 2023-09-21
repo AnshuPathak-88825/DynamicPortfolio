@@ -11,12 +11,12 @@ const TextShpere = () => {
     return () => {
       const container = ".tagcloud";
       const texts = [
-        "Ankit",
+        "Anshu",
         "kumar",
         "Pathak",
         "Student",
-        "NSUT",
-        "RPVV",
+        "MAIT",
+        "GSBV",
         "#JS",
         "DSA",
         "#MERN",
@@ -24,6 +24,8 @@ const TextShpere = () => {
         "Problem",
         "GIT",
         "GITHUB",
+        "React",
+        "Content Writer"
       ];
 
       const options = {

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 const NamePlate = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
 
-  const nameArray = ['A', 'n', 'k', 'i', 't', 'P', 'a','t','h','a','k']
+  const nameArray = ['A', 'n', 'S', 'H', 'U', 'P', 'a','t','h','a','k']
   const jobArray = [
     'w',
     'e',
